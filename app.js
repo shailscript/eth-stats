@@ -30,3 +30,64 @@ fetch(`https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=$
         document.getElementById('gasLimit').textContent = parseInt(result.gasLimit);
         console.log(result);
     });
+
+// interactivity and UX scripts
+
+var show = function (elem) {
+
+    var getHeight = function () {
+		elem.style.display = 'block';
+		var height = elem.scrollHeight + 'px'; // Get it's height
+		elem.style.display = '';
+		return height;
+    };
+
+    var height = getHeight(); // Get the natural height
+	elem.classList.add('is-visible');
+	elem.style.height = height; // Update the max-height
+
+	window.setTimeout(function () {
+		elem.style.height = '';
+	}, 350);
+
+};
+
+var hide = function (elem) {
+
+    elem.style.height = elem.scrollHeight + 'px';
+
+	// Set the height back to 0
+	window.setTimeout(function () {
+		elem.style.height = '0';
+	}, 1);
+
+	window.setTimeout(function () {
+		elem.classList.remove('is-visible');
+	}, 350);
+
+};
+
+var toggle = function (elem, timing) {
+
+    if (elem.classList.contains('is-visible')) {
+		hide(elem);
+		return;
+	}
+
+	show(elem);
+	
+};
+
+document.getElementById('moreLink').addEventListener('click', function (event) {
+
+    if (!event.target.classList.contains('toggle')) return;
+
+	event.preventDefault();
+
+	var content = document.querySelector(event.target.hash);
+	if (!content) return;
+
+	toggle(content);
+
+}, false);
+
