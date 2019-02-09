@@ -91,3 +91,24 @@ document.getElementById('moreLink').addEventListener('click', function (event) {
 
 }, false);
 
+
+document.getElementById('links').addEventListener('click', function(e){
+    
+    console.log(event);
+    if(e.target.tagName === 'A') {
+        if(e.target.hash === '#home') {
+
+            document.querySelector('#about').classList.add('hidden');
+            document.querySelector('#home').classList.remove('hidden');
+            console.log('about uda?')
+
+        }
+        if(e.target.hash === '#about') {
+
+            document.querySelector('#home').classList.add('hidden');
+            document.querySelector('#about').classList.remove('hidden');
+            console.log('home uda?')
+
+        }
+    }
+});
