@@ -111,6 +111,9 @@ document.getElementById('links').addEventListener('click', function(e){
 
             document.querySelector('#about').classList.add('hidden');
             document.querySelector('#home').classList.remove('hidden');
+            
+            document.querySelector('#homeLink').classList.add('active');
+            document.querySelector('#aboutLink').classList.remove('active');
             console.log('about uda?')
 
         }
@@ -118,6 +121,9 @@ document.getElementById('links').addEventListener('click', function(e){
 
             document.querySelector('#home').classList.add('hidden');
             document.querySelector('#about').classList.remove('hidden');
+            
+            document.querySelector('#aboutLink').classList.add('active');
+            document.querySelector('#homeLink').classList.remove('active');
             console.log('home uda?')
 
         }
