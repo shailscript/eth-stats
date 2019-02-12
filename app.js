@@ -15,7 +15,6 @@ fetch(`https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=$
     .then(response => response.json())
     .then(response => {
 
-        console.log(response);
         document.getElementById('lastBlock').textContent = parseInt(response.result);
         return response.result;
 
@@ -38,8 +37,6 @@ fetch(`https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=$
 
         document.getElementById('gasUsed').textContent = str;
         document.getElementById('gasLimit').textContent = parseInt(result.gasLimit);
-
-        console.log(result);
     });
 
 // interactivity and UX scripts
@@ -104,8 +101,7 @@ document.getElementById('moreLink').addEventListener('click', function (event) {
 
 
 document.getElementById('links').addEventListener('click', function(e){
-    
-    console.log(event);
+
     if(e.target.tagName === 'A') {
         if(e.target.hash === '#home') {
 
@@ -114,7 +110,6 @@ document.getElementById('links').addEventListener('click', function(e){
             
             document.querySelector('#homeLink').classList.add('active');
             document.querySelector('#aboutLink').classList.remove('active');
-            console.log('about uda?')
 
         }
         if(e.target.hash === '#about') {
@@ -124,7 +119,6 @@ document.getElementById('links').addEventListener('click', function(e){
             
             document.querySelector('#aboutLink').classList.add('active');
             document.querySelector('#homeLink').classList.remove('active');
-            console.log('home uda?')
 
         }
     }
